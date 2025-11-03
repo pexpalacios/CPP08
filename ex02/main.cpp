@@ -6,14 +6,16 @@
 /*   By: penpalac <penpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:57:23 by penpalac          #+#    #+#             */
-/*   Updated: 2025/11/03 18:25:30 by penpalac         ###   ########.fr       */
+/*   Updated: 2025/11/03 18:38:35 by penpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
+#include <list>
 
 int main(void)
 {
+	std::cout << "=== MutantStack Test ===" << std::endl;
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
@@ -23,7 +25,6 @@ int main(void)
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
-	//[...]
 	mstack.push(0);
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
@@ -35,5 +36,27 @@ int main(void)
 		++it;
 	}
 	std::stack<int> s(mstack);
+
+	std::cout << "=== List test ===" << std::endl;
+	std::list<int> lst;
+	lst.push_back(5);
+	lst.push_back(17);
+	std::cout << lst.back() << std::endl;
+	lst.pop_back();
+	std::cout << lst.size() << std::endl;
+	lst.push_back(3);
+	lst.push_back(5);
+	lst.push_back(737);
+	lst.push_back(0);
+	std::list<int>::iterator lst_it = lst.begin();
+	std::list<int>::iterator lst_ite = lst.end();
+	++lst_it;
+	--lst_it;
+	while (lst_it != lst_ite)
+	{
+		std::cout << *lst_it << std::endl;
+		++lst_it;
+	}
+	
 	return (0);
 }
