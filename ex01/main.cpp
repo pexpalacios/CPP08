@@ -6,7 +6,7 @@
 /*   By: penpalac <penpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:02:00 by penpalac          #+#    #+#             */
-/*   Updated: 2025/11/03 17:51:30 by penpalac         ###   ########.fr       */
+/*   Updated: 2025/11/04 15:27:51 by penpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int main(void)
 {
 	try
 	{
-		std::cout << std::endl;
 		std::cout << "=== Subject test ===" << std::endl;
 		Span sp = Span(5);
 		sp.addNumber(6);
@@ -36,7 +35,6 @@ int main(void)
 	
 	try
 	{
-		std::cout << std::endl;
 		std::cout << "=== Large Span test ===" << std::endl;
 		Span sp = Span(10000);
 		std::vector<int> vec;
@@ -51,7 +49,6 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << std::endl;
 	std::cout << "=== Errors test ===" << std::endl;
 	try
 	{

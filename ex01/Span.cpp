@@ -6,7 +6,7 @@
 /*   By: penpalac <penpalac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:02:23 by penpalac          #+#    #+#             */
-/*   Updated: 2025/11/03 17:53:57 by penpalac         ###   ########.fr       */
+/*   Updated: 2025/11/04 15:24:31 by penpalac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,12 @@ const char* Span::MaxSizeException::what() const throw()
 {
 	return ("Span's max size reached");
 }
+
 const char* Span::SpanNotBigEnoughException::what() const throw()
 {
 	return ("Object has too few elemenst to find a span");
 }
+
 const char* Span::DuplicatedValueException::what() const throw()
 {
 	return ("Value is already in span");
@@ -52,6 +54,7 @@ int Span::shortestSpan()
 {
 	if (_vec.size() <= 1)
 		throw (SpanNotBigEnoughException());
+
 	std::vector<int> sorted = _vec;
 	std::sort(sorted.begin(), sorted.end());
 	int min = INT_MAX;
@@ -83,18 +86,18 @@ void Span::addNumber(int number)
 	_vec.push_back(number);
 }
 
-void Span::addMultipleNumbers(std::vector<int>::iterator it01, std::vector<int>::iterator it02)
+void Span::addMultipleNumbers(std::vector<int>::iterator start, std::vector<int>::iterator finish)
 {
-	int range = 0;
-	std::vector<int>::iterator it = it01;
-	while (it != it02)
+	int size = 0;
+	std::vector<int>::iterator it = start;
+	while (it != finish)
 	{
-		range++;
+		size++;
 		it++;
 	}
-	if ((_vec.size() + range) > _max)
+	if ((_vec.size() + size) > _max)
 		throw (MaxSizeException());
-	for (std::vector<int>::iterator i = it01; i != it02; i++)
+	for (std::vector<int>::iterator i = start; i != finish; i++)
 	{
 		if (std::find(_vec.begin(), _vec.end(), *i) != _vec.end())
 			throw (DuplicatedValueException());
