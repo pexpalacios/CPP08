@@ -4,15 +4,14 @@
 This module is about STL containers and algorithms.
 
 ---
-- ex 00: Start with a few functions
+- ex 00: Easy find
 ```
-	Create a swap(), min() and max() functions using templates
+	Use algorithms to create a function that finds an element within a container.
 ```
-- ex 01: Iter
+- ex 01: Span
 ```
-	Create a iter() function with templates that can take const and non-const parameters
+	Recreate the container span (unavailable in c++98) as a simple class.
 ```
-- ex 02: Array
+- ex 02: Mutated abomination
 ```
-	Create an array class with templates
-```
+	Create a MutantStack class that is just a stack with iterators.
